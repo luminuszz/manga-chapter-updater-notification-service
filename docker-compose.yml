@@ -1,0 +1,12 @@
+version: "3.7"
+
+
+services:
+  manga_chapter_updater_notification:
+    build:
+        context: .
+        dockerfile: "./docker/${DOCKERFILE}/dockerfile"
+
+    volumes:
+      - ./:/home/services/notification-service
+      - /home/services/notification-service/node_modules

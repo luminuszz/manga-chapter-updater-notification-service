@@ -1,0 +1,21 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+
+model Notification {
+  id               String @id @default(auto()) @map("_id") @db.ObjectId
+  read_at          DateTime?
+  type             String
+  content          String
+  recipient_id     String
+  created_at       DateTime
+}
